@@ -1,5 +1,5 @@
 # Firebase-Real-Time-Web-Admin-App
-Escribe y lee data en tiempo real con Firebase y React JS. 
+ Panel de Administración para escribir y leer data en tiempo real a partir de Firebase utilizando React JS. 
 
 # Clona este repositorio y ve al directorio creado: 
 
