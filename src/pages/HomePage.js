@@ -15,7 +15,6 @@ const writeAdminData =(userInfo)=> {
   firebase.database().ref('reservas').push({
       userInfo
   }).catch((error)=>{
-      //error callback
       console.log('error ' , error)
   })
 }
