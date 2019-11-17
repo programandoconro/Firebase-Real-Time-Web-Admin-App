@@ -6,10 +6,11 @@ import {
   IonButton,
   IonInput,
   IonToast,
-  IonText
+  IonText,
+  IonImg
 } from "@ionic/react";
 import BasicPage from "../components/BasicPage";
-
+import Logo from './assets/cactus.png'
 import { inject, observer } from "mobx-react";
 
 class LoginPage extends Component {
@@ -84,6 +85,16 @@ class LoginPage extends Component {
                       {isAuth ? "Logged In" : "Login"}
                     </IonButton>
                 
+                  </div>
+
+                  <div>
+                  <img
+                   src={Logo}
+                   width='70%'
+                   height= '70%'
+                   >
+                   </img> 
+
                   </div>
                 </>
               );
