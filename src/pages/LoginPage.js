@@ -7,7 +7,6 @@ import {
   IonInput,
   IonToast,
   IonText,
-  IonImg
 } from "@ionic/react";
 import BasicPage from "../components/BasicPage";
 import Logo from './assets/cactus.png'
@@ -62,6 +61,7 @@ class LoginPage extends Component {
                     <IonLabel position="floating">Email Address</IonLabel>
                     <IonInput type="email" ref={this.email} name="email" />
                   </IonItem>
+                 
                   <IonItem>
                     <IonLabel position="floating">Password</IonLabel>
                     <IonInput
@@ -70,6 +70,7 @@ class LoginPage extends Component {
                       name="password"
                     />
                   </IonItem>
+                  
                   <div style={{ padding: 10, paddingTop: 20 }}>
                     <IonButton
                       expand="full"
