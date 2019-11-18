@@ -12,7 +12,7 @@ import TabContainer from "../components/TabContainer";
 import firebase from '@firebase/app'
 
 const writeAdminData =(userInfo)=> {
-  firebase.database().ref('reservas').push({
+  firebase.database().ref('user0001').push({
       userInfo
   }).catch((error)=>{
       console.log('error ' , error)
@@ -35,7 +35,7 @@ class HomePage extends Component {
   componentWillUpdate () {
 
       const readUsersData = ()=> {
-      const nameRef =  firebase.database().ref('reservas')
+      const nameRef =  firebase.database().ref('user0001')
       nameRef.on('value', (snapshot)=> {
         const state = snapshot.val()
         this.state.reservas =  state
