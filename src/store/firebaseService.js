@@ -122,7 +122,7 @@ export const getUserProfile = () => {
  * @param {*} param0
  */
 export const queryObjectCollection = ({ collection }) => {
-  let currentUserId = firebase.auth().currentUser.uid;
+
   let collectionRef = firebase.firestore().collection(collection);
 
   let results = [];
@@ -189,7 +189,7 @@ export const addObjectToCollection = ({ collection, objectData }) => {
  * @param {*} objectId - id of data to remove from the collection
  */
 export const removeObjectFromCollection = ({ collection, objectId }) => {
-  let currentUserId = firebase.auth().currentUser.uid;
+ 
   let collectionRef = firebase.firestore().collection(collection);
 
   return collectionRef.doc(objectId).delete()

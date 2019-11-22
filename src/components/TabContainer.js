@@ -1,6 +1,5 @@
 import React from "react";
 
-import TabOnePage from "../pages/TabOnePage";
 import TabTwoPage from "../pages/TabTwoPage";
 
 const TabContainer = ({ history, changedTabs, addItem , showAddItemModal}) => {
@@ -11,10 +10,7 @@ const TabContainer = ({ history, changedTabs, addItem , showAddItemModal}) => {
       }}
     >
       <ion-tab tab="tab1">
-        <TabOnePage
-          history={history}
-          
-        />
+        
       </ion-tab>
       <ion-tab tab="tab2">
         <TabTwoPage 

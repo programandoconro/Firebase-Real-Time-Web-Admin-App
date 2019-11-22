@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { IonItem, IonContent, IonButton, IonLabel } from "@ionic/react";
+import { IonItem, IonContent, IonButton } from "@ionic/react";
 // MOBX
 import { inject } from "mobx-react";
 

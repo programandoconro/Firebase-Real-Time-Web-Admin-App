@@ -77,7 +77,7 @@ class HomePage extends Component {
           <IonButton
           onClick= {()=>{
             pushAdminData(this.state.value) ;
-            writeAdminData( JSON.stringify(this.state.value).replace(/["{[,\}\]]/g, "") ) ;
+            writeAdminData( JSON.stringify(this.state.value).replace(/["{[,}\]]/g, "") ) ;
             
           }}
          > Enviar </IonButton>           
