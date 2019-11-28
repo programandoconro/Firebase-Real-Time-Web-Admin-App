@@ -19,11 +19,11 @@ const TabContainer = ({ history, changedTabs, addItem , showAddItemModal}) => {
 
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="tab1" onClick={changedTabs}>
-          <ion-label>Admin Panel</ion-label>
+          <ion-label> Admin Panel </ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" onClick={changedTabs}>
-          <ion-label>Menu</ion-label>
+          <ion-label> Menu </ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -31,3 +31,4 @@ const TabContainer = ({ history, changedTabs, addItem , showAddItemModal}) => {
 };
 
 export default TabContainer;
+

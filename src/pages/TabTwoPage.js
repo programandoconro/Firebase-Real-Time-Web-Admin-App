@@ -32,6 +32,7 @@ class TabTwoPage extends Component {
           }}
         >
           LOGOUT
+          
         </IonButton>
       </IonContent>
     );
