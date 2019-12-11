@@ -67,26 +67,34 @@ class HomePage extends Component {
         <IonHeader>
           <IonToolbar color="primary">
           </IonToolbar>       
-        <h1>Introduzca la reserva a confirmar:</h1>
+        <h1 style={{flex:1,textAlign:'center', alignContent:'center'}}>Introduzca la reserva a confirmar:</h1>
+         <div             style={myStyle}  
+ >
           <input 
             onChange={ e=> this.setState({value: e.target.value})}
-            value={this.state.value}     
+            value={this.state.value} 
+             
            > 
           </input>  
+</div>
 
+<div             style={myStyle}  
+ >
           <IonButton
           onClick= {()=>{
             pushAdminData(this.state.value) ;
-            writeAdminData( JSON.stringify(this.state.value).replace(/["{[,\}\]]/g, "") ) ;
+            writeAdminData( JSON.stringify(this.state.value).replace(/["{[,}\]]/g, "") ) ;
             
           }}
-         > Enviar </IonButton>           
+          
+         > Enviar </IonButton>
+         </div>           
          </IonHeader>        
         
           <IonContent >
-           
-            <IonList> {tabla.reverse()}  </IonList>   
-         
+           <div style={myStyle}> 
+            <IonList    > {tabla.reverse()}  </IonList>   
+            </div>
           <TabContainer
             history={this.props.history}
             changedTabs={e => this._changedTabs(e)}
@@ -98,6 +106,12 @@ class HomePage extends Component {
       
     );
   }
+}
+
+const myStyle = {
+
+  flex:1,textAlign:'center', alignContent:'center',alignItems:'center'
+
 }
 
 export default HomePage

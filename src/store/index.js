@@ -1,5 +1,4 @@
 import { observable, computed, action, decorate, runInAction } from "mobx";
-import { entries } from "mobx";
 import * as firebaseService from "./firebaseService";
 
 export class Store {
@@ -26,9 +25,6 @@ export class Store {
     return this.activeUser;
   };
 
-  /**
-   * check to see if we have a user before starting up
-   */
   async initializeStore() {
     return firebaseService
       .authCheck(this.handleAuthedUser)
