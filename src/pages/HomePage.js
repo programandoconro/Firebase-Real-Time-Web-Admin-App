@@ -32,7 +32,7 @@ class HomePage extends Component {
       
     };
   };
-
+  
   componentDidMount() {
     this.setState({ loading: true });
     firebase.database().ref('user0001').on('value', snapshot => {
@@ -41,18 +41,13 @@ class HomePage extends Component {
       this.setState({reservas:{snapshot}})
     });
   }
-
+  
   
   componentWillUpdate () {
     
-    const readUsersData = ()=> {
-      const nameRef =  firebase.database().ref('user0001')
-      nameRef.on('value', (snapshot)=> {
-        const state = snapshot.val();
-        this.state.reservas =  state;
-      })
-    }
-    readUsersData();
+    
+    
+    
   }
   
   _changedTabs = e => {
