@@ -21,16 +21,27 @@ const writeAdminData =(userInfo)=> {
 
 class HomePage extends Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       onListPage: true,
       data:[],
       reservas:[],
       value:  [],
+      loading:true
       
     };
   };
+
+  componentDidMount() {
+    this.setState({ loading: true });
+    firebase.database().ref('user0001').on('value', snapshot => {
+      // convert messages list from snapshot
+      this.setState({ loading: false });
+      this.setState({reservas:{snapshot}})
+    });
+  }
+
   
   componentWillUpdate () {
     
