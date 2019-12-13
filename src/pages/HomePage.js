@@ -65,7 +65,8 @@ class HomePage extends Component {
     }
     
     const reservas =  JSON.stringify(this.state.reservas)
-    const tabla =  reservas.split (',').map ((item, i) => <p key={i}>{item}</p>)
+    const tabla =  reservas.split (',').map ((item, i) => <p key={i}>{
+                                             item.substr(35).replace("}","").replace("}}","")}</p>)
     
     return (
       
