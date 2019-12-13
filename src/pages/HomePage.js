@@ -8,8 +8,8 @@ import {
   IonList,
   
 } from "@ionic/react";
-import TabContainer from "../components/TabContainer";
 import firebase from '@firebase/app';
+import TabTwoPage from './TabTwoPage'
 
 const writeAdminData =(userInfo)=> {
   firebase.database().ref('user0001').push({
@@ -89,7 +89,7 @@ class HomePage extends Component {
       <IonButton
       onClick= {()=>{
         pushAdminData(this.state.value) ;
-        writeAdminData( JSON.stringify(this.state.value).replace(/["{[,}\]]/g, "") ) ;
+        writeAdminData( this.state.value) ;
         alert('La confirmación ha sido enviada ' + this.state.value )
       }}
       
@@ -101,10 +101,7 @@ class HomePage extends Component {
       <div style={myStyle}> 
       <IonList    > {tabla.reverse()}  </IonList>   
       </div>
-      <TabContainer
-      history={this.props.history}
-      changedTabs={e => this._changedTabs(e)}
-      />
+      <TabTwoPage/>
       
       </IonContent>
       
@@ -121,4 +118,3 @@ class HomePage extends Component {
   };
   
   export default HomePage;
-  
