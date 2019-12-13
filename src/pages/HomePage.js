@@ -1,109 +1,97 @@
-import React, { Component } from "react";
-import {
-  IonPage,
-  IonContent,
-  IonHeader,
-  IonToolbar,
-  IonButton,
-  IonList,
-  
-} from "@ionic/react";
-import firebase from '@firebase/app';
-import TabTwoPage from './TabTwoPage'
+import React, { useState, useEffect} from 'react';
+import firebase from 'firebase';
+import TabTwoPage from './TabTwoPage';
+import {IonButton} from "@ionic/react";
+import './App.css';
 
-const writeAdminData =(userInfo)=> {
-  firebase.database().ref('user0001').push({
-    userInfo
-  }).catch((error)=>{
-    console.log('error ' , error);
+function HomePage() {
+  const [reservas, handleReservas] = useState([]);
+  const [input, handleInput] = useState('');
+
+  useEffect(()=>{
+    firebase
+    .database()
+    .ref('user0001')
+    .on('value', (e)=> (e)
+    )
+    console.log('Mounted ');
   })
-}
-
-class HomePage extends Component {
   
-  constructor(props) {
-    super(props);
-    this.state = {
-      onListPage: true,
-      data:[],
-      reservas:[],
-      value:  [],
-      loading:true
-      
-    };
-  };
+  useEffect(()=>{
+    
+    firebase
+    .database()
+    .ref('user0001')
+    .on('value', handleReservas
+    );
+  },[])
   
-  componentDidMount() {
-    this.setState({ loading: true });
-    firebase.database().ref('user0001').on('value', snapshot => {
-      // convert messages list from snapshot
-      this.setState({ loading: false });
-      this.setState({reservas:{snapshot}})
-    });
-  }
- componentWillUpdate(){
-    console.log('listening ... ')
+  const deleteColletion =()=> {
+    firebase
+    .database()
+    .ref('user0001').remove()
     
   }
   
-  render() {
+  const tabla = JSON.stringify(reservas)
+  
+  const mytabla =  tabla.split (',').map ((item, i) => <div>
+  <p key={i}>{item
+    .replace(RegExp(/([.*+?^=!$(){}|[\]\/\\""])/g)," ")
+    .replace("userInfo","").replace(":","->").replace(":"," ")
+  }</p><item> {item.replace(RegExp(/([.*+?^=!$(){}|[\]\/\\""])/g)," ")
+  .replace("userInfo","").replace(":","->").replace(":"," ")}</item>
+  
+  <IonButton onClick={()=>writeAdminData(item)}> Confirmar </IonButton></div>);
+  
+  const writeAdminData =(userInfo)=> {
+    firebase.database().ref('user0001').push({
+      userInfo
+    }).catch((error)=>{
+      console.log('error ' , error)
+    })
+  }
+  
+  return (
     
-    const pushAdminData = (data)  => {
-      this.setState({data })
+    <div style={myStyle}>
+    <h1>Click a la reserva a confirmar o confirmar manualmente </h1>
+    
+    <input 
+    value={input}
+    onChange={e=>handleInput(e.target.value)}
+    >
+    </input>
+    <IonButton onClick={()=>writeAdminData(input)}> Confirmar </IonButton>
+    
+    <br></br>
+    <br></br>
+    
+    <ul className='myList' > { 
+      
+      mytabla.reverse()
+      
     }
     
-    const reservas =  JSON.stringify(this.state.reservas)
-    const tabla =  reservas.split (',').map ((item, i) => <p key={i}>{
-                                             item.substr(35).replace("}","").replace("}}","")}</p>)
-    
-    return (
-      
-      <IonPage>
-      <IonHeader>
-      <IonToolbar color="primary">
-      </IonToolbar>       
-      <h1 style={{flex:1,textAlign:'center', alignContent:'center'}}>Introduzca la reserva a confirmar:</h1>
-      <div             style={myStyle}  
-      >
-      <input 
-      onChange={ e=> this.setState({value: e.target.value})}
-      value={this.state.value} 
-      
-      > 
-      </input>  
-      </div>
-      
-      <div             style={myStyle}  
-      >
-      <IonButton
-      onClick= {()=>{
-        pushAdminData(this.state.value) ;
-        writeAdminData( this.state.value) ;
-        alert('La confirmación ha sido enviada ' + this.state.value )
-      }}
-      
-      > Enviar </IonButton>
-      </div>           
-      </IonHeader>        
-      
-      <IonContent >
-      <div style={myStyle}> 
-      <IonList    > {tabla.reverse()}  </IonList>   
-      </div>
-      <TabTwoPage/>
-      
-      </IonContent>
-      
-      </IonPage>
-      
-      );
-    }
+    </ul>  
+    <IonButton
+    style={{color:'red'}}
+    onClick={()=>deleteColletion()}
+    > Limpiar la lista  </IonButton>
+    <TabTwoPage/>
+    </div>
+    )
   }
   
   const myStyle = {
-    
     flex:1,textAlign:'center', alignContent:'center',alignItems:'center'
     
-  };
+  }
   
   export default HomePage;
+  
+  
+  
+  
+  
+  
