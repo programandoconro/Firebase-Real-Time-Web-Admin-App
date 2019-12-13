@@ -41,21 +41,9 @@ class HomePage extends Component {
       this.setState({reservas:{snapshot}})
     });
   }
-  
-  
-  componentWillUpdate () {
+ componentWillUpdate(){
+    console.log('listening ... ')
     
-    
-    
-    
-  }
-  
-  _changedTabs = e => {
-    if (e.currentTarget.attributes.tab.value === "tab1") {
-      this.setState(() => ({ onListPage: true }));
-    } else {
-      this.setState(() => ({ onListPage: false }));
-    }
   }
   
   render() {
