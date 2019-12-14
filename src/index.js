@@ -1,27 +1,62 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
+import Login from './components/Login'
+import DashBoard from './components/Dashboard'
+import {BrowserRouter , Switch, Route, Redirect} from 'react-router-dom'
+import './index.css'
+import { firebaseAuth } from '../src/store/constans'
 
-import { Provider } from 'mobx-react'
-
-import { Store } from './store';
-
-import "@ionic/core/css/core.css";
-import "@ionic/core/css/ionic.bundle.css";
-
-import * as serviceWorker from "./serviceWorker";
-
-const store = new Store();
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function PrivateRoute ({component: Component, authed, ...rest}) {
+    return (
+        <Route
+        {...rest}
+        render={(props) => authed === true
+            ? <Component {...props} />
+            : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+            />
+            )
+        }
+        
+        export default function App() {
+            const [state,handleState] = useState( false );
+            useEffect(()=>{
+                firebaseAuth().onAuthStateChanged((user) => {
+                    if (user) {
+                        handleState(
+                            true
+                            
+                            )
+                        } else {
+                            handleState(
+                                false
+                                
+                                )
+                            }
+                        })                    
+                        
+                    })
+                    
+                    return  (
+                        <BrowserRouter>
+                        <div>
+                        
+                        <div className="container">
+                        <div className="row">
+                        <Switch>
+                        <Route path='/' exact component={Login} />
+                        
+                        <PrivateRoute authed={state} path='/dashboard' component={DashBoard} />
+                        <Route render={() => <Login/>} />
+                        </Switch>
+                        </div>
+                        </div>
+                        </div>
+                        </BrowserRouter>
+                        );
+                    }
+                    
+                    ReactDOM.render(<App />, document.getElementById('root'));
+                    
+                    
+                    
+                    

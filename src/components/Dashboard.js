@@ -1,13 +1,11 @@
 import React, { useState, useEffect} from 'react';
-import firebase from 'firebase';
-import TabTwoPage from './TabTwoPage';
-import {IonButton} from "@ionic/react";
-import './App.css';
+import firebase from 'firebase/app';
+import './App.css'
 
-function HomePage() {
+function Dashboard() {
   const [reservas, handleReservas] = useState([]);
   const [input, handleInput] = useState('');
-
+  
   useEffect(()=>{
     firebase
     .database()
@@ -15,10 +13,10 @@ function HomePage() {
     .on('value', (e)=> (e)
     )
     console.log('Mounted ');
-  })
+  }
+  )
   
   useEffect(()=>{
-    
     firebase
     .database()
     .ref('user0001')
@@ -33,16 +31,16 @@ function HomePage() {
     
   }
   
-  const tabla = JSON.stringify(reservas)
-  
+  const tabla = JSON.stringify(reservas);
+
   const mytabla =  tabla.split (',').map ((item, i) => <div>
   <p key={i}>{item
-    .replace(RegExp(/([.*+?^=!$(){}|[\]\/\\""])/g)," ")
+    .replace(RegExp(/([.*+?^=!$(){}|[\]\\""])/g)," ")
     .replace("userInfo","").replace(":","->").replace(":"," ")
-  }</p><item> {item.replace(RegExp(/([.*+?^=!$(){}|[\]\/\\""])/g)," ")
-  .replace("userInfo","").replace(":","->").replace(":"," ")}</item>
+  }</p><p> {item.replace(RegExp(/([.*+?^=!$(){}|[\]/\\""])/g)," ")
+  .replace("userInfo","").replace(":","->").replace(":"," ")}</p>
   
-  <IonButton onClick={()=>writeAdminData(item)}> Confirmar </IonButton></div>);
+  <button onClick={()=>writeAdminData(item)}> Confirmar </button></div>);
   
   const writeAdminData =(userInfo)=> {
     firebase.database().ref('user0001').push({
@@ -53,45 +51,30 @@ function HomePage() {
   }
   
   return (
-    
     <div style={myStyle}>
     <h1>Click a la reserva a confirmar o confirmar manualmente </h1>
-    
     <input 
     value={input}
     onChange={e=>handleInput(e.target.value)}
     >
     </input>
-    <IonButton onClick={()=>writeAdminData(input)}> Confirmar </IonButton>
-    
-    <br></br>
-    <br></br>
-    
+    <button onClick={()=>writeAdminData(input)}> Confirmar </button>
+    <br></br><br></br>
     <ul className='myList' > { 
-      
       mytabla.reverse()
       
     }
-    
     </ul>  
-    <IonButton
-    style={{color:'red'}}
+    <button
     onClick={()=>deleteColletion()}
-    > Limpiar la lista  </IonButton>
-    <TabTwoPage/>
+    > Limpiar la lista  </button>
     </div>
     )
   }
-  
   const myStyle = {
     flex:1,textAlign:'center', alignContent:'center',alignItems:'center'
     
   }
-  
-  export default HomePage;
-  
-  
-  
-  
-  
+
+  export default Dashboard;
   
