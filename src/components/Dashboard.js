@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import './App.css';
 import { Typography, Paper,  Button, } from '@material-ui/core';
+import logo from '../assets/cactus.png';
 
 const db = () => firebase.database();
 
@@ -56,7 +57,9 @@ function Dashboard() {
 			.replace(':', ' ')}
 			</p>
 			
-			<Button onClick={() => writeAdminData(item)} >
+			<Button 
+			onClick={() => writeAdminData(item)}
+			 >
 			Confirmar
 			</Button>
 			</div>
@@ -91,15 +94,14 @@ function Dashboard() {
 					
 					return (
 						<div style={myStyle}>
+						<Paper >
 						<h1>Panel de Administración de Reservaciones</h1>
+						<img src= {logo} alt='cactus'></img>
 						<h1>Restaurante Cactus</h1>
-						
-						
-						
-						<hr style={{backgroundColor:'pink',color:'pink'}}></hr>
+				        </Paper>
 						
 						<Paper>
-						<Typography> Bandeja de Entrada de Reservaciones </Typography>
+						<Typography> Bandeja de Entrada </Typography>
 						<ul 
 						className='myList'> 
 						{myDashboard.reverse()}
@@ -107,25 +109,23 @@ function Dashboard() {
 						
 						<Button 
 						type="submit"
-						
 						variant="contained"
 						color="primary"
-						onClick={() => deleteDB()}>
-						Limpiar toda la Base de Datos 
+						onClick={()=>{if (window.confirm('¿Seguro que desea borrar toda la Bandeja de Entrada?')) deleteDB() }}>
+						Borrar
 						</Button>
-						
-						<hr style={{backgroundColor:'pink', color:'pink'}}></hr>
-						
-						
+						<hr style={mySeparator}></hr>
 						</Paper>
-						<Typography> Bandeja de Salida para confirmación a usuario </Typography>
+
+						<Typography> Bandeja de Salida </Typography>
 						
 						<Paper>
 						<input 
 						value={input} 
 						onChange={(e) => handleInput(e.target.value)}>
 						</input>
-						
+						<br></br><br></br>
+
 						<Button 
 						onClick={() => writeAdminData(input)}
 						type="submit"
@@ -133,12 +133,9 @@ function Dashboard() {
 						variant="contained"
 						color="primary"
 						> 
-						
-						Confirmar 
-						</Button>
-						
-						<br></br>
-						<br></br>
+						Enviar
+						</Button>				
+						<br></br><br></br>
 						
 						<input 
 						placeholder='ID Usuario' 
@@ -153,25 +150,28 @@ function Dashboard() {
 						
 						<Button 
 						type="submit"
-						
 						variant="contained"
 						color="primary"
-						onClick={() => deleteColletion()}>
-						Limpiar reserva 
+						onClick={()=>{if (window.confirm('¿Seguro que desea borrar la reservación?')) deleteColletion() }}>
+						Borrar 
 						</Button>
-						
-						</Paper>	
-						<hr style={{backgroundColor:'pink',color:'pink'}}></hr>
+						<hr style={mySeparator}></hr>
+						</Paper>
+
 						<Paper>
 						<Button 
 						type="submit"
-						
 						variant="contained"
 						color="primary"
 						onClick={() => logOut()}>
 						Salir  
 						</Button>
-						</Paper>					
+						</Paper>
+
+						<h5>* Instrucciones: 1. Identifique las reservaciones en la Bandeja de Entrada. </h5>					
+						<h5> 2. Ingrese el usuario de interés dentro de la Bandeja de Salida. </h5>					
+						<h5> 3. Confirme directamente la reserva con el botón CONFIRMAR y/o escriba un mensaje con la respuesta deseada. </h5>					
+						
 						</div>
 						);
 					}
@@ -180,11 +180,16 @@ function Dashboard() {
 						textAlign: 'center',
 						alignContent: 'center',
 						alignItems: 'center'
-					};
+					}
 					
 					const myItem ={
 						float: 'left', 
 						display: 'inline' 
+					}
+
+					const mySeparator ={
+						backgroundColor:'pink',
+						color:'white' 
 					}
 					
 					export default Dashboard;
