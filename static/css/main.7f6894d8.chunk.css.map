@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css","index.css"],"names":[],"mappings":"AACA,QAEI,UAAW,CACX,SAAU,CACV,eAAe,CACf,wBAAyB,CACzB,eAGF,CCVF,EACI,UACJ","file":"main.7f6894d8.chunk.css","sourcesContent":["\n.myList {\n  \n    padding: 2%;\n    width: 80%;\n    text-align:left;\n    background-color: #f0f0f0;\n    margin-left: 10%;\n  \n  \n  }\n  ","* {\n    padding:  1%;\n}"]}
