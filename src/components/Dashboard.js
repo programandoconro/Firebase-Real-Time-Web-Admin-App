@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import './App.css';
+import { Typography, Paper,  Button, } from '@material-ui/core';
 
 const db = () => firebase.database();
 
@@ -8,6 +9,7 @@ function Dashboard() {
 	const [reservas, handleReservas] = useState([]);
 	const [input, handleInput] = useState('');
 	const [data, handleData] = useState('');
+	const [userID, handleuserID] = useState('user0001');
 	
 	useEffect(() => {
 		db();
@@ -15,17 +17,14 @@ function Dashboard() {
 	});
 	
 	useEffect(() => {
-		db()
-		.ref('user0001')
-		.on('value', handleReservas);
-		
+		db().ref('/').on('value', handleReservas);
 		db().ref('/').on('value', handleData)
-	}, []);
+	}, [userID]);
 	
 	const deleteColletion = () => {
 		firebase
 		.database()
-		.ref('user0001')
+		.ref(userID)
 		.remove();
 	};
 	
@@ -57,17 +56,13 @@ function Dashboard() {
 			.replace(':', ' ')}
 			</p>
 			
-			<button onClick={() => writeAdminData(item)} >
+			<Button onClick={() => writeAdminData(item)} >
 			Confirmar
-			</button>
-			<button onClick={() => writeAdminData(item)} >
-			Rechazar
-			</button>
+			</Button>
 			</div>
 			));
 			
 			const myData = JSON.stringify(data);
-			
 			const myDashboard = myData.split(',').map((item, i) => (
 				
 				<div>
@@ -81,8 +76,6 @@ function Dashboard() {
 					
 					</div>
 					));
-					
-					const [userID, handleuserID] = useState('');
 					
 					const writeAdminData = (userInfo) => {
 						firebase
@@ -98,17 +91,51 @@ function Dashboard() {
 					
 					return (
 						<div style={myStyle}>
-						<h1>Click a la reserva a confirmar o confirmar manualmente</h1>
+						<h1>Panel de Administración de Reservaciones</h1>
+						<h1>Restaurante Cactus</h1>
 						
+						
+						
+						<hr style={{backgroundColor:'pink',color:'pink'}}></hr>
+						
+						<Paper>
+						<Typography> Bandeja de Entrada de Reservaciones </Typography>
+						<ul 
+						className='myList'> 
+						{myDashboard.reverse()}
+						</ul>
+						
+						<Button 
+						type="submit"
+						
+						variant="contained"
+						color="primary"
+						onClick={() => deleteDB()}>
+						Limpiar toda la Base de Datos 
+						</Button>
+						
+						<hr style={{backgroundColor:'pink', color:'pink'}}></hr>
+						
+						
+						</Paper>
+						<Typography> Bandeja de Salida para confirmación a usuario </Typography>
+						
+						<Paper>
 						<input 
 						value={input} 
 						onChange={(e) => handleInput(e.target.value)}>
 						</input>
 						
-						<button 
-						onClick={() => writeAdminData(input)}> 
+						<Button 
+						onClick={() => writeAdminData(input)}
+						type="submit"
+						
+						variant="contained"
+						color="primary"
+						> 
+						
 						Confirmar 
-						</button>
+						</Button>
 						
 						<br></br>
 						<br></br>
@@ -124,25 +151,27 @@ function Dashboard() {
 						{mytabla.reverse()}
 						</ul>
 						
-						<button 
+						<Button 
+						type="submit"
+						
+						variant="contained"
+						color="primary"
 						onClick={() => deleteColletion()}>
 						Limpiar reserva 
-						</button>
+						</Button>
 						
-						<ul 
-						className='myList'> 
-						{myDashboard.reverse()}
-						</ul>
+						</Paper>	
+						<hr style={{backgroundColor:'pink',color:'pink'}}></hr>
+						<Paper>
+						<Button 
+						type="submit"
 						
-						<button 
-						onClick={() => deleteDB()}>
-						Limpiar todas las reservas 
-						</button>
-						
-						<button 
+						variant="contained"
+						color="primary"
 						onClick={() => logOut()}>
 						Salir  
-						</button>						
+						</Button>
+						</Paper>					
 						</div>
 						);
 					}
