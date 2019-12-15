@@ -6,7 +6,7 @@ Panel de Administración para escribir, leer y eliminar data en tiempo real a pa
     git clone https://github.com/progamandoconro/Firebase-Real-Time-Web-Admin-App
     cd Firebase-Real-Time-Web-Admin-App
     
-# Agrega tus credenciales de Firebase al archivo ```firebaseService.js``` ubicado en ```src/store/firebaseService.js```   
+### Agrega tus credenciales de Firebase al archivo ```firebaseService.js``` ubicado en ```src/store/firebaseService.js```   
     
     var firebaseConfig = {
 
@@ -20,15 +20,15 @@ Panel de Administración para escribir, leer y eliminar data en tiempo real a pa
       measurementId: ""
     };
 
-# Instala la App y las dependencias con: 
+### Instala la App y las dependencias con: 
    
     npm install 
     
-# Corre la App con:
+### Corre la App con:
 
     npm start
 
-# Funcionalidades:
+### Funcionalidades:
 
 * Firebase Login.
 * Firebase Real-Time Database.
