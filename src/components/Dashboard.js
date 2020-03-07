@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import firebase from 'firebase/app';
+import firebase  from 'firebase/app' ;
 import './App.css';
 import { Typography, Paper,  Button, } from '@material-ui/core';
 import logo from '../assets/cactus.png';
@@ -11,6 +11,11 @@ function Dashboard() {
 	const [input, handleInput] = useState('');
 	const [data, handleData] = useState('');
 	const [userID, handleuserID] = useState('user0001');
+
+	useEffect(() => {
+		db().ref('/');
+		
+	})
 	
 	useEffect(() => {
 		db().ref('/').on('value', handleReservas);
