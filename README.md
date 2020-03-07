@@ -1,4 +1,8 @@
-https://progamandoconro.github.io/Firebase-Real-Time-Web-Admin-App/
+Revisa la App publicada en: https://progamandoconro.github.io/Firebase-Real-Time-Web-Admin-App/
+```
+Usuario: cactus@admin.com
+Clave: 123456
+```
 
 # Firebase-Real-Time-Web-Admin-App
 Panel de Administración para escribir, leer y eliminar data en tiempo real a partir de Firebase utilizando ```React JS```. Este panel de Administración es parte del proyecto ```React-Native``` para Android disponible en: https://github.com/progamandoconro/React-Native-Restaurant-Reservation-App
@@ -21,6 +25,21 @@ Panel de Administración para escribir, leer y eliminar data en tiempo real a pa
       appId: "",
       measurementId: ""
     };
+    
+ Cambia las reglas de seguridad de la "realtime database" a:
+
+ ```
+ {
+  "rules": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+  }
+}
+```
+Habilita la opción email/password en la Authentication del proyecto creado, por último, crea un usuario y contraseña.
+
+Paso a paso: https://dzone.com/articles/how-to-integrate-react-application-using-firebase-1.   
+    
 
 ### Instala la App y las dependencias con: 
    
