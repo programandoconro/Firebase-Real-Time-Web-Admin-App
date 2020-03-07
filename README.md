@@ -21,6 +21,21 @@ Panel de Administración para escribir, leer y eliminar data en tiempo real a pa
       appId: "",
       measurementId: ""
     };
+    
+ Cambia las reglas de seguridad de la "realtime database" a:
+
+ ```
+ {
+  "rules": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+  }
+}
+```
+Habilita la opción email/password en la Authentication del proyecto creado, por último, crea un usuario y contraseña.
+
+Paso a paso: https://dzone.com/articles/how-to-integrate-react-application-using-firebase-1.   
+    
 
 ### Instala la App y las dependencias con: 
    
