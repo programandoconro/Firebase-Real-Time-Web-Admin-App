@@ -13,11 +13,6 @@ function Dashboard() {
 	const [userID, handleuserID] = useState('user0001');
 	
 	useEffect(() => {
-		db();
-		console.log('Mounted ');
-	});
-	
-	useEffect(() => {
 		db().ref('/').on('value', handleReservas);
 		db().ref('/').on('value', handleData)
 	}, [userID]);
@@ -45,10 +40,10 @@ function Dashboard() {
 	}
 	
 	const tabla = JSON.stringify(reservas);
-	const mytabla = tabla.split(',').map((item, i) => (
+	const mytabla = tabla.split(',').map((item, k) => (
 		
-		<div>
-		<p style={myItem}>
+		<div key={k}>
+		<p style={myItem} >
 		{item
 			.slice(25)
 			.replace(RegExp(/([.*+?^=!$(){}|[\]/\\""])/g), ' ')
@@ -66,10 +61,10 @@ function Dashboard() {
 			));
 			
 			const myData = JSON.stringify(data);
-			const myDashboard = myData.split(',').map((item, i) => (
+			const myDashboard = myData.split(',').map((item, k) => (
 				
-				<div>
-				<p>
+				<div key={k}>
+				<p >
 				{item
 					.replace(RegExp(/([.*+?^=!$(){}|[\]/\\""])/g), ' ')
 					.replace('userInfo', '')
