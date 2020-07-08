@@ -37,16 +37,13 @@ function SignIn(props) {
 		Restaurante Cactus
 		</Typography>
 		
-		
-		
-		
 		<form className={classes.form} onSubmit={e => e.preventDefault() && false}>
 		<FormControl margin="normal" required fullWidth>
 		<InputLabel htmlFor="email">Correo electrónico</InputLabel>
 		<Input id="email" name="email" autoComplete="off" autoFocus value={email} onChange={e => setEmail(e.target.value)} />
 		</FormControl>
 		<FormControl margin="normal" required fullWidth>
-		<InputLabel htmlFor="password">Constraseña</InputLabel>
+		<InputLabel htmlFor="password">Contraseña</InputLabel>
 		<Input name="password" type="password" id="password" autoComplete="off" value={password} onChange={e => setPassword(e.target.value)} />
 		</FormControl>
 		<Button
