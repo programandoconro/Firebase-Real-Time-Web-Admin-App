@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Firebase-Real-Time-Web-Admin-App/precache-manifest.2f1fb2350d9713a0c46f9c46b74a402d.js"
+  "/Firebase-Real-Time-Web-Admin-App/precache-manifest.6a0a3e6f30e62b26c3b0ab6feaa0b32d.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -35,5 +35,5 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/Firebase-Real-Time-Web-Admin-App/index.html"), {
   
-  blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
+  blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });

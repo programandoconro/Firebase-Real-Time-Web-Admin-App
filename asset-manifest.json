@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/Firebase-Real-Time-Web-Admin-App/static/css/main.7f6894d8.chunk.css",
-    "main.js": "/Firebase-Real-Time-Web-Admin-App/static/js/main.65894fa2.chunk.js",
-    "main.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/main.65894fa2.chunk.js.map",
-    "runtime-main.js": "/Firebase-Real-Time-Web-Admin-App/static/js/runtime-main.aac04a2c.js",
-    "runtime-main.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/runtime-main.aac04a2c.js.map",
-    "static/js/2.b508f31b.chunk.js": "/Firebase-Real-Time-Web-Admin-App/static/js/2.b508f31b.chunk.js",
-    "static/js/2.b508f31b.chunk.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/2.b508f31b.chunk.js.map",
+    "main.js": "/Firebase-Real-Time-Web-Admin-App/static/js/main.e014b7d1.chunk.js",
+    "main.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/main.e014b7d1.chunk.js.map",
+    "runtime-main.js": "/Firebase-Real-Time-Web-Admin-App/static/js/runtime-main.dadef984.js",
+    "runtime-main.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/runtime-main.dadef984.js.map",
+    "static/js/2.8014eb0d.chunk.js": "/Firebase-Real-Time-Web-Admin-App/static/js/2.8014eb0d.chunk.js",
+    "static/js/2.8014eb0d.chunk.js.map": "/Firebase-Real-Time-Web-Admin-App/static/js/2.8014eb0d.chunk.js.map",
     "index.html": "/Firebase-Real-Time-Web-Admin-App/index.html",
-    "precache-manifest.2f1fb2350d9713a0c46f9c46b74a402d.js": "/Firebase-Real-Time-Web-Admin-App/precache-manifest.2f1fb2350d9713a0c46f9c46b74a402d.js",
+    "precache-manifest.6a0a3e6f30e62b26c3b0ab6feaa0b32d.js": "/Firebase-Real-Time-Web-Admin-App/precache-manifest.6a0a3e6f30e62b26c3b0ab6feaa0b32d.js",
     "service-worker.js": "/Firebase-Real-Time-Web-Admin-App/service-worker.js",
     "static/css/main.7f6894d8.chunk.css.map": "/Firebase-Real-Time-Web-Admin-App/static/css/main.7f6894d8.chunk.css.map",
-    "static/js/2.b508f31b.chunk.js.LICENSE.txt": "/Firebase-Real-Time-Web-Admin-App/static/js/2.b508f31b.chunk.js.LICENSE.txt",
+    "static/js/2.8014eb0d.chunk.js.LICENSE.txt": "/Firebase-Real-Time-Web-Admin-App/static/js/2.8014eb0d.chunk.js.LICENSE.txt",
     "static/media/cactus.png": "/Firebase-Real-Time-Web-Admin-App/static/media/cactus.69a61ffa.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.aac04a2c.js",
-    "static/js/2.b508f31b.chunk.js",
+    "static/js/runtime-main.dadef984.js",
+    "static/js/2.8014eb0d.chunk.js",
     "static/css/main.7f6894d8.chunk.css",
-    "static/js/main.65894fa2.chunk.js"
+    "static/js/main.e014b7d1.chunk.js"
   ]
 }
