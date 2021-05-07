@@ -54,4 +54,4 @@ Paso a paso: https://dzone.com/articles/how-to-integrate-react-application-using
 * Firebase Login.
 * Firebase Real-Time Database.
 * Escribe, lee y elimina data en tiempo real a partir de ```Firebase```. 
-* Administra Reservaciones realizada por Usuarios de la App móvil para Android (https://github.com/programandoconro/React-Native-Restaurant-Reservation-App).
+* Administra Reservaciones realizada por Usuarios de la App móvil para Android (https://github.com/programandoconro/React-Native-Firebase-Restaurant-Reservation-App).
