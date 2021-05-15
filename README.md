@@ -1,5 +1,4 @@
-Revisa la App publicada en: https://github.com/programandoconro/React-Native-Firebase-Restaurant-Reservation-App
-```
+Revisa la App publicada en: https://programandoconro.github.io/Firebase-Real-Time-Web-Admin-App/
 Usuario: cactus@admin.com
 Clave: 123456
 ```
