@@ -12,7 +12,7 @@ Este panel de Administración es parte del proyecto ```React-Native``` para Andr
 
 ### Clona este repositorio y ve al directorio creado: 
 
-    git clone https://github.com/programandoconro/Firebase-Real-Time-Web-Admin-App
+    git clone https://github.com/progamandoconro/Firebase-Real-Time-Web-Admin-App
     cd Firebase-Real-Time-Web-Admin-App
     
 ### Agrega tus credenciales de Firebase al archivo ```firebaseService.js``` ubicado en ```src/store/firebaseService.js```   
