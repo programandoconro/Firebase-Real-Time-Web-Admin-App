@@ -124,11 +124,13 @@ function Dashboard() {
 
         <Button
           onClick={() => {
-            if (input.length > 0) {
+            if (input.length > 0 && userID.length > 0) {
               writeAdminData(input);
               alert("Gracias! se ha enviado exitosamente ");
               handleInput("");
               handleuserID("");
+            } else {
+              alert("Usuario/Bandeja no pueden estar vacios");
             }
           }}
           type="submit"
@@ -148,17 +150,6 @@ function Dashboard() {
 
         <ul className="myList">{mytabla.reverse()}</ul>
 
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            if (window.confirm("¿Seguro que desea borrar la reservación?"))
-              deleteColletion();
-          }}
-        >
-          Borrar
-        </Button>
         <hr style={mySeparator}></hr>
       </Paper>
 
